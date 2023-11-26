@@ -1,0 +1,9 @@
+.login{
+  width: 100%;
+  height: 100vh; /*VIEWPORT - área de visualização*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right #EFB9CB, #F89F7B);
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap 5-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Ícones Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Para consultar a lista de ícones, acesse: https://icons.getbootstrap.com/ -->
+    <!-- CSS -->
+    <link href="css/estilo.css" rel="stylesheet" />
+    <link href="img/imglogo1.png" rel="icon" type="image/png" />
+    <title>Menu</title>
+  </head>
+
+  <body onload="verificaLogado()">
+    <nav
+      class="navbar col-12 navbar-expand-lg"
+      style="z-index: 999; background: rgb(224, 180, 190)"
+    >
+    <div class="container-fluid col-11 m-auto">
+      <a class="navbar-brand" href="index.html"> 
+      <img src="img/imglogo1.png" width="100" height="100" alt=""></a>
+
+      <div class="container-fluid" >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand"></a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Entrega</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="index.html"
+                tabindex="-1"
+                aria-disabled="true"
+                >Produtos</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <div id="imagemUsuario"></div>
+
+            <button
+              class="btn btn-danger"
+              type="button"
+              onclick="logoutFirebase()"
+            >
+              <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!--Menu Inicial-->
+<!--Carousel-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      
+      
+<!--Imagens do carousel-->
+      <div class="carousel-item active">
+        <img src="img/imgcar1.png" class="d-block w-100" alt="...">
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/imgcar7.png" class="d-block w-100" alt="...">
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/imgcar4.png" class="d-block w-100" alt="...">
+      </div>
+
+
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"> Anterior </span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"> Próximo </span>
+    </button>
+  </div>
+
+ <br> <br> <br>
+
+
+    <div class="container-fluid col-11 m-auto;">
+      <div class="row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum2.png" alt="Mountains" style="width:84%" class="imgcard2">
+              <p class="card-text"> BTS - LOVE YOURSELF : SPEAK YOURSELF [THE FINAL] </p>
+              <h2 style="color: rgb(223, 158, 223)"> R$450,00</h2>
+              <a  href="bts.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum1.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> BTS - PROOF (STANDARD/COMBO) </p>
+              <h2 style="color: #df9edf" class="direita"> R$450,00</h2>
+              <a  href="bts.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumB1.png" alt="Mountains" style="width:94%" class="imgcard1">
+              <p class="card-text"> BTS - LOVE YOURSELF: TEAR </p>
+              <h2 style="color: #df9edf" class="direita"> R$192,00</h2>
+              <a  href="bts.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumB2.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> BTS - BE (ESSENTIAL EDITION) </p>
+              <h2 style="color: #df9edf" class="direita"> R$232,00</h2>
+              <a  href="bts.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br> 
+    <br> 
+
+  <div class="container-fluid col-11 m-auto">
+      <div class="row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum3.png" alt="Mountains" style="width:84%" class="imgcard2">
+              <p class="card-text"> SEVENTEEN - 11th Mini Album 'SEVENTEENTH HEAVEN' </p>
+              <h2 style="color: rgb(223, 158, 223)"> R$163,00</h2>
+              <a  href="seventeen.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum4.png" alt="Mountains" style="width:95%" class="imgcard1">
+              <p class="card-text"> SEVENTEEN - 2nd album [ Teen, Age ] </p>
+              <h2 style="color: #df9edf" class="direita"> R$200,00</h2>
+              <a  href="seventeen.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumSE3.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> SEVENTEEN - FML </p>
+              <h2 style="color: #df9edf" class="direita"> R$190,00</h2>
+              <a  href="seventeen.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumSE4.png" alt="Mountains" style="width:84%" class="imgcard1">
+              <p class="card-text"> SEVENTEEN-FML 10o Mini Álbum (ver . Fotobook/KiT/Em Toda Parte Álbuns) </p>
+              <h2 style="color: #df9edf" class="direita"> R$84,00</h2>
+              <a  href="seventeen.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br> 
+    <br> 
+    
+  <div class="container-fluid col-11 m-auto">
+      <div class="row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum7.png" alt="Mountains" style="width:90%" class="imgcard2">
+              <p class="card-text"> STRAY KIDS - 5-STAR </p>
+              <h2 style="color: rgb(223, 158, 223)"> R$195,00</h2>
+              <a  href="straykids.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum8.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> STRAY KIDS - IN? IN LIFE (STANDART) </p>
+              <h2 style="color: #df9edf" class="direita"> R$250,00</h2>
+              <a  href="straykids.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumST7.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> STRAY KIDS - MAXIDENT </p>
+              <h2 style="color: #df9edf" class="direita"> R$185,00</h2>
+              <a  href="straykids.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumST8.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> STRAY KIDS - GO? (STANDART) </p>
+              <h2 style="color: #df9edf" class="direita"> R$245,00</h2>
+              <a  href="straykids.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br> 
+    <br> 
+    
+  <div class="container-fluid col-11 m-auto">
+      <div class="row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum5.png" alt="Mountains" style="width:85%" class="imgcard2">
+              <p class="card-text"> TWICE - TASTE OF LOVE </p>
+              <h2 style="color: rgb(223, 158, 223)"> R$215,00</h2>
+              <a  href="twice.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbum6.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> TWICE - READY TO BE </p>
+              <h2 style="color: #df9edf" class="direita"> R$215,00</h2>
+              <a  href="twice.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumT5.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> TWICE - FORMULA OF LOVE </p>
+              <h2 style="color: #df9edf" class="direita"> R$180,00</h2>
+              <a  href="twice.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="img/imgalbumT6.png" alt="Mountains" style="width:90%" class="imgcard1">
+              <p class="card-text"> TWICE - MORE & MORE </p>
+              <h2 style="color: #df9edf" class="direita"> R$208,00</h2>
+              <a  href="twice.html"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Veja mais ➕</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--Rodapé-->
+    <footer
+      class="footer fixed-bottom text-white text-center"
+      style="background: rgb(224, 180, 190)"
+    >
+      <div class="container my-2" style="background: rgb(224, 180, 190)">
+        &copy; 2023 VL K-Shop - Todos os direitos reservados
+      </div>
+    </footer>
+
+    <!-- Carregando os scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    <!--script do projeto -->
+    <script src="js/firebase.js"></script>
+  </body>
+</html>

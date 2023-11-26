@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap 5-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Ícones Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Para consultar a lista de ícones, acesse: https://icons.getbootstrap.com/ -->
+    <!-- CSS -->
+    <link href="css/estilo.css" rel="stylesheet" />
+    <link href="img/imglogo1.png" rel="icon" type="image/png" />
+    <title>Menu</title>
+  </head>
+
+  <body onload="verificaLogado();carregaCadastrados()">
+      <nav
+        class="navbar col-12 navbar-expand-lg"
+        style="z-index: 999; background: rgb(224, 180, 190)"
+      >
+      <div class="container-fluid col-11 m-auto">
+        <a class="navbar-brand" href="index.html"> 
+        <img src="img/imglogo1.png" width="100" height="100" alt=""></a>
+  
+        <div class="container-fluid" >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand"></a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cadastro.html">Entrega</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="index.html"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Produtos</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex">
+              <div id="imagemUsuario"></div>
+  
+              <button
+                class="btn btn-danger"
+                type="button"
+                onclick="logoutFirebase()"
+              >
+                <i class="bi bi-box-arrow-right"></i> Logout
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<!--Area de cadastro-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Formulário -->
+          <h4 class="mt-3 text-warning">Informações para Entrega</h4>
+          <form id="formCadastro" method="post" class="shadow-lg p-3">
+            <!-- Nome do Destinatario-->
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome Completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                autofocus
+                required
+              />
+            </div>
+            <!-- CEP -->
+            <div class="mb-3">
+              <label for="cep" class="form-label">CEP</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cep"
+                name="cep"
+                required
+                placeholder="Ex: 13309320"
+                maxlength="8"
+                pattern="[0-9]{8}"
+                title="Informe o CEP no formato 99999999"
+              />
+              <div
+                class="spinner-border text-primary d-none"
+                id="spinner"
+              ></div>
+            </div>
+            <!-- Endereço -->
+            <div class="mb-3 col-11">
+              <label for="endereco" class="form-label">Endereço</label>
+              <input
+                type="text"
+                class="form-control"
+                id="endereco"
+                name="endereco"
+                placeholder="Endereço Completo"
+                required
+              />
+            </div>
+
+            <!--Complemento-->
+            <div class="mb-3 row">
+            <div class="col-md-6">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="complemento"
+                name="complemento"
+                placeholder="casa/apartamento"
+                required
+              />
+            </div>
+            <!--Número-->
+            <div class="col-md-6">
+              <label>Número</label>
+              <input type="text" class="form-control" id="num" name="num" placeholder="Número" required/>
+            </div>
+            </div>
+
+            <!-- Presente-->
+            <div class="mb-3 row">
+              <div class="col-md-6">
+                <label for="presente" class="form-label">É para presente?</label>
+                <input
+                  type="hidden"
+                  class="form-control"
+                  name="presente"
+                />
+                <select id="presente" name="presente" required>
+                  <option >Selecione...</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
+                </select>
+                
+              </div>
+              <!-- Telefone -->
+              <div class="col-md-6">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telefone"
+                  name="telefone"
+                  step="any"
+                  required
+                  placeholder="(11) 9xxxx-xxxx"
+                />
+              </div>
+              <!-- fecha a parte de cadastro-->
+
+            </div>
+
+            <!-- Botões-->
+            <div class="my-5">
+              <button class="btn btn-outline-success" id="salvar" type="submit">
+                <i class="bi bi-truck"></i> Cadastrar
+              </button>
+              <button class="btn btn-outline-danger" id="limpar" type="reset">
+                <i class="bi bi-truck-flatbed"></i> Limpar
+              </button>
+            </div>
+          </form>
+          <script>
+            
+            // Seletor para o campo de telefone
+            const telefoneInput = document.getElementById("telefone");
+
+            // Adiciona um ouvinte de evento ao campo de telefone para validação
+            telefoneInput.addEventListener("input", function (event) {
+            let telefone = event.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+
+            // Limita o número máximo de caracteres para 11 (incluindo DDD e 9 dígitos)
+            telefone = telefone.substring(0, 11);
+
+            // Formata o telefone no padrão (DD) 9XXXX-XXXX
+            const formattedTelefone = telefone.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+
+            // Define o valor formatado de volta ao campo de telefone
+            event.target.value = formattedTelefone;
+          });
+          </script>
+
+        </div>
+        <div class="col-md-6">
+          <img
+            src="img/entrega-banner.png"
+            title="entrega-banner"
+            class="img w-100 mx-auto mt-5"
+          />
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <h4 class="mt-3 text-warning">Resumo das Informações</h4>
+          <table class="table table-bordered border-radius">
+            <thead>
+              <tr class="table-warning">
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Complemento</th>
+                <th>Numero</th>
+                <th>Presente</th>
+                <th>Telefone</th>
+                
+              </tr>
+            </thead>
+            <tbody id="dadosTabela"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!--Rodapé-->
+    
+    <footer
+      class="footer fixed-bottom text-white text-center"
+      style="background: rgb(224, 180, 190)"
+    >
+      <div class="container my-2" style="background: rgb(224, 180, 190)">
+        &copy; 2023 VL K-Shop- Todos os direitos reservados
+      </div>
+    </footer>
+
+    <!-- Carregando os scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    <!--script do projeto -->
+    <script src="js/firebase.js"></script>
+    <script src="js/util.js"></script>
+    <script>
+      //obtendo a referência ao campo(em JAVASCRIPT!!)
+      const cepInput = document.getElementById("cep");
+      const spinner = document.getElementById("spinner");
+      const enderecoInput = document.getElementById("endereco");
+    
+      //adicionando o evento de escuta no cep
+      cepInput.addEventListener("blur", function () {
+        //mostrar o spinner
+        spinner.classList.remove("d-none");
+
+        //consultando o cep
+        const cepValue = cepInput.value;
+        getCEP(cepValue, (erro, Logradouro) => {
+          //Após a resposta, remove o spinner
+          spinner.classList.add("d-none");
+          if (erro) {
+            alert(erro);
+          } else {
+            enderecoInput.value = Logradouro;
+           
+          }
+        });
+
+        //mudar o foco para o botão salvar
+        document.getElementById("salvar").focus();
+      });
+
+         //mudar o foco para o botão salvar
+         document.getElementById("salvar").focus();
+    
+
+      // Seletor para o campo "presente" (select)
+    const presenteSelect = document.getElementById("presente");
+
+    // Seletor para o campo "presente" (campo oculto)
+    const presenteHidden = document.querySelector('input[name="presente"]');
+
+    // Adiciona um ouvinte de evento ao campo "presente" (select) para atualizar o campo oculto
+    presenteSelect.addEventListener("change", function () {
+        presenteHidden.value = presenteSelect.value;
+    });
+    </script>
+  </body>
+</html>
