@@ -2,6 +2,6 @@
 
 Integrantes 💻:
 
-Karen Amanda de Oliveria Paulino;
-Luana Sousa de Oliveira;
+Karen Amanda de Oliveria Paulino; <br>
+Luana Sousa de Oliveira; <br>
 Vanessa de Lima Veloso.
